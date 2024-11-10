@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling Example</title>
+    <script>
+        function checkNumber() {
+            let input = document.getElementById('numberInput').value;
+            let message = document.getElementById('errorMessage');
+            message.innerHTML = ""; // Clear any previous messages
+
+            try {
+                if (isNaN(input) || input === "") {
+                    throw "This is not a number!";
+                }
+                if (input < 1) {
+                    throw "The number must be greater than 0!";
+                }
+                alert("Success! The number is valid.");
+            } catch (err) {
+                message.innerHTML = "Error: " + err;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Number Validator</h1>
+    <p>Enter a number and click the button to validate it:</p>
+    <input type="text" id="numberInput">
+    <button onclick="checkNumber()">Check Number</button>
+    <p id="errorMessage" style="color: red;"></p>
+</body>
+
+</html>
